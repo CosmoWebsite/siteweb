@@ -27,20 +27,6 @@ const HeroSection: React.FC<HeroSectionProps> = ({ language }) => {
     },
   };
 
-  const handleClickCollect = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    const section = document.querySelector("#click-collect");
-    if (section) {
-      const navHeight = 80; // Hauteur de la barre de navigation
-      const targetPosition =
-        section.getBoundingClientRect().top + window.pageYOffset - navHeight;
-      window.scrollTo({
-        top: targetPosition,
-        behavior: "smooth",
-      });
-    }
-  };
-
   useEffect(() => {
     async function fetchMenu() {
       try {
@@ -54,6 +40,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({ language }) => {
 
     fetchMenu();
   }, []);
+
+  console.log("Menu PDF URL:", menuPdfUrl);
 
   return (
     <>
@@ -83,56 +71,51 @@ const HeroSection: React.FC<HeroSectionProps> = ({ language }) => {
                 {content[language].cta1}
                 <ArrowRight className="ml-2 h-5 w-5" />
               </button>
-              <button
-                onClick={handleClickCollect}
-                className="bg-white text-[#41522f] px-8 py-3 rounded-md hover:bg-gray-100 transition-colors"
-              >
+              <button className="bg-white text-[#41522f] px-8 py-3 rounded-md hover:bg-gray-100 transition-colors">
                 {content[language].cta2}
               </button>
-            </div>
-            <div className="mt-12 flex justify-center gap-6">
-              <a
-                href="https://www.ubereats.com/fr/store/cosmo-burger/T3FJphpaUjSCCF4m3QP2jg?srsltid=AfmBOoqngS1Z0NcsxVkoDCsWt_0VDL5o-yzgKndjoM2Gz0zvxnzaU5Si"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src="https://lh3.googleusercontent.com/pw/AP1GczNcZfvW11yXtzCCsKGqRjTrLli0NzB3UJagAGlB-u9HcO6b_uL073AVoOnkDhF7ofiCoB3cDfrSyK38dUAXtgN-GqzMR7SqGg9sbWnG49YXGDRhLP-3z8KXC18NjZnXQqjlc10_Po7YKJtxXfMuIku7=w2076-h2076-s-no-gm?authuser=0"
-                  alt="Uber Eats"
-                  className="h-8 opacity-90"
-                />
-              </a>
-              <a
-                href="https://deliveroo.fr/fr/menu/paris/8eme-europe/cosmo-burger-paris"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src="https://lh3.googleusercontent.com/pw/AP1GczM7sxaFd4Teci1vaBog_SpK1XenvDuYh_tHEStFuDmnQ4baQl4m8uxSeKs02JLmI9dzTUmYwrCJQYDWUkucOet06b0YUZt_5aCOyrcuJxggddN_y_HdZ9_1_8gaY19UH5k9AHXHGJ38eHg9Qv7Ml6eH=w225-h225-s-no-gm?authuser=0"
-                  alt="Deliveroo"
-                  className="h-8 opacity-90"
-                />
-              </a>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Menu Modal */}
+      {/* Menu Modal sans iframe */}
       {showMenu && menuPdfUrl && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4">
-          <div className="relative w-full max-w-4xl h-[80vh] bg-white rounded-lg shadow-lg  flex flex-col">
+          <div className="relative w-full max-w-4xl h-[80vh] bg-white rounded-lg shadow-lg flex flex-col overflow-hidden">
             {/* Bouton Fermer */}
             <button
               onClick={() => setShowMenu(false)}
-              className="absolute top-4 right-4 bg-white/10 hover:bg-white/20 text-black p-2 rounded-full transition-colors"
+              className="absolute top-4 right-4 bg-gray-200 hover:bg-gray-300 text-black p-2 rounded-full transition-colors"
             >
               <X className="h-6 w-6" />
             </button>
 
-            {/* Conteneur avec gestion du scroll */}
-            <div className="flex-1">
-              <iframe src={menuPdfUrl} className="w-full h-full"></iframe>
+            {/* Contenu du menu */}
+            <div className="flex-1 overflow-auto p-6">
+              <h2 className="text-xl font-semibold mb-4 text-center">
+                {content[language].cta1}
+              </h2>
+
+              <div className="border rounded-lg overflow-hidden shadow-md">
+                <embed
+                  src={menuPdfUrl}
+                  type="application/pdf"
+                  className="w-full h-[60vh] hidden sm:block"
+                />
+                <p className="text-center text-gray-600 sm:hidden">
+                  📄 Votre appareil ne prend pas en charge l'aperçu du PDF.
+                  <br />
+                  <a
+                    href={menuPdfUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 underline"
+                  >
+                    Cliquez ici pour télécharger le menu
+                  </a>
+                </p>
+              </div>
             </div>
           </div>
         </div>
