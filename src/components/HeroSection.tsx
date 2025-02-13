@@ -120,17 +120,19 @@ const HeroSection: React.FC<HeroSectionProps> = ({ language }) => {
 
       {/* Menu Modal */}
       {showMenu && menuPdfUrl && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80">
-          <div className="relative w-full h-full max-w-7xl max-h-[90vh] mx-4">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4">
+          <div className="relative w-full max-w-4xl h-auto max-h-[90vh] bg-white rounded-lg shadow-lg overflow-hidden">
             <button
               onClick={() => setShowMenu(false)}
-              className="absolute top-4 right-4 bg-white/10 hover:bg-white/20 text-white p-2 rounded-full transition-colors"
+              className="absolute top-4 right-4 bg-white/10 hover:bg-white/20 text-black p-2 rounded-full transition-colors"
             >
               <X className="h-6 w-6" />
             </button>
+
             <iframe
               src={menuPdfUrl}
-              className="w-full h-full rounded-lg"
+              className="w-full h-[80vh] sm:h-[90vh] rounded-lg"
+              style={{ maxWidth: "100%", maxHeight: "100%" }}
               allow="autoplay"
             ></iframe>
           </div>
