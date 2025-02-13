@@ -41,8 +41,6 @@ const HeroSection: React.FC<HeroSectionProps> = ({ language }) => {
     fetchMenu();
   }, []);
 
-  console.log("Menu PDF URL:", menuPdfUrl);
-
   return (
     <>
       <div className="relative h-screen">
@@ -101,20 +99,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({ language }) => {
                 <embed
                   src={menuPdfUrl}
                   type="application/pdf"
-                  className="w-full h-[60vh] hidden sm:block"
+                  className="w-full h-[60vh] "
                 />
-                <p className="text-center text-gray-600 sm:hidden">
-                  📄 Votre appareil ne prend pas en charge l'aperçu du PDF.
-                  <br />
-                  <a
-                    href={menuPdfUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-600 underline"
-                  >
-                    Cliquez ici pour télécharger le menu
-                  </a>
-                </p>
               </div>
             </div>
           </div>
