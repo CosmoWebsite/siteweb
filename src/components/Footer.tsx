@@ -6,7 +6,7 @@ interface FooterProps {
 }
 
 const Footer: React.FC<FooterProps> = ({ language }) => {
-  const [phone, setPhone] = useState("Chargement...");
+  const [phone, setPhone] = useState("01 42 94 83 41");
   const [schedule, setSchedule] = useState([]);
 
   useEffect(() => {
