@@ -27,7 +27,7 @@ const Restaurant: React.FC<RestaurantProps> = ({ language }) => {
       experience: "Unique experience",
     },
   };
-  const [phone, setPhone] = useState("Chargement...");
+  const [phone, setPhone] = useState("01 42 94 83 41");
 
   useEffect(() => {
     async function fetchPhone() {
@@ -43,6 +43,8 @@ const Restaurant: React.FC<RestaurantProps> = ({ language }) => {
 
     fetchPhone();
   }, []);
+
+  console.log("Phone:", phone);
 
   return (
     <section className="py-20 bg-white">
