@@ -77,7 +77,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ language }) => {
         </div>
       </div>
 
-      {/* Menu Modal sans iframe */}
+      {/* Menu Modal avec affichage natif */}
       {showMenu && menuPdfUrl && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4">
           <div className="relative w-full max-w-4xl h-[80vh] bg-white rounded-lg shadow-lg flex flex-col overflow-hidden">
@@ -95,12 +95,13 @@ const HeroSection: React.FC<HeroSectionProps> = ({ language }) => {
                 {content[language].cta1}
               </h2>
 
-              <div className="border rounded-lg overflow-hidden shadow-md">
-                <embed
-                  src={menuPdfUrl}
+              <div className="border rounded-lg overflow-hidden shadow-md h-[60vh] flex flex-col items-center justify-center">
+                {/* Affichage avec object */}
+                <object
+                  data={menuPdfUrl}
                   type="application/pdf"
-                  className="w-full h-[60vh] "
-                />
+                  className="w-full h-full"
+                ></object>
               </div>
             </div>
           </div>
