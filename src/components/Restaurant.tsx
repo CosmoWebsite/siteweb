@@ -110,10 +110,6 @@ const Restaurant: React.FC<RestaurantProps> = ({ language }) => {
               <Clock className="h-5 w-5 mr-2" />
               <span>11:30 - 23:00</span>
             </div>
-            <div className="flex items-center">
-              <Phone className="h-5 w-5 mr-2" />
-              <span>{phone}</span>
-            </div>
           </div>
         </div>
       </div>
