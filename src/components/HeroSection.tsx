@@ -121,7 +121,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ language }) => {
       {/* Menu Modal */}
       {showMenu && menuPdfUrl && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4">
-          <div className="relative w-full max-w-4xl h-[90vh] bg-white rounded-lg shadow-lg overflow-hidden flex flex-col">
+          <div className="relative w-full max-w-4xl h-[80vh] bg-white rounded-lg shadow-lg  flex flex-col">
             {/* Bouton Fermer */}
             <button
               onClick={() => setShowMenu(false)}
@@ -131,13 +131,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({ language }) => {
             </button>
 
             {/* Conteneur avec gestion du scroll */}
-            <div className="flex-1 overflow-auto">
-              <iframe
-                src={menuPdfUrl}
-                className="w-full h-full"
-                style={{ maxWidth: "100%", height: "100vh" }}
-                allow="autoplay"
-              ></iframe>
+            <div className="flex-1">
+              <iframe src={menuPdfUrl} className="w-full h-full"></iframe>
             </div>
           </div>
         </div>
