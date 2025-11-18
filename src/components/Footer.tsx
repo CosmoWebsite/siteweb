@@ -79,25 +79,22 @@ const Footer: React.FC<FooterProps> = ({ language }) => {
           </div>
         </div>
 
-<div className="mt-6 pt-4 border-t border-[#707c62] text-center">
-<div className="text-center pt-3 pb-1">
-<p className="text-sm mb-2" style={{ color: "var(--header-text)", opacity: 0.8 }}>
-© 2025 {restaurantInfo?.name}. Tous droits réservés.
-</p>
-<p className="text-sm mb-1" style={{ color: "var(--header-text)", opacity: 0.6 }}>
-<a
-href="https://www.vasseo.com/"
-target="_blank"
-rel="noopener noreferrer"
-className="hover:opacity-80 transition-opacity"
->
-Created with <span style={{ color: "#707c62" }}>♥</span> by Vasseo
-</a>
-</p>
-</div>
-</div>
-</div>
-</footer>
+        <div className="mt-6 pt-4 border-t border-[#707c62] text-center text-sm">
+          <p className="mb-2">&copy; {new Date().getFullYear()} COSMO BURGER</p>
+          <p className="text-white/80">
+            Réalisé avec passion par{" "}
+            <a
+              href="https://www.gosite-web.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-white/90 underline underline-offset-2"
+            >
+              GOSITE-WEB
+            </a>
+          </p>
+        </div>
+      </div>
+    </footer>
   );
 };
 
