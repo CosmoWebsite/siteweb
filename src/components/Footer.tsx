@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { MapPin, Phone, Clock } from "lucide-react";
 import client from "../Lib/sanityClient.js";
+
 interface FooterProps {
   language: "fr" | "en";
 }
@@ -79,20 +80,24 @@ const Footer: React.FC<FooterProps> = ({ language }) => {
           </div>
         </div>
 
+        {/* --- PARTIE FOOTER MODIFIÉE --- */}
         <div className="mt-6 pt-4 border-t border-[#707c62] text-center text-sm">
           <p className="mb-2">&copy; {new Date().getFullYear()} COSMO BURGER</p>
+
           <p className="text-white/80">
-            Réalisé avec passion par{" "}
+            Created with{" "}
+            <span style={{ color: "#707c62", fontSize: "1.1em" }}>❤️</span> by{" "}
             <a
-              href="https://www.gosite-web.com/"
+              href="https://www.vasseo.com"
               target="_blank"
               rel="noopener noreferrer"
               className="text-white hover:text-white/90 underline underline-offset-2"
             >
-              GOSITE-WEB
+              Vasseo
             </a>
           </p>
         </div>
+        {/* --- FIN MODIF --- */}
       </div>
     </footer>
   );
