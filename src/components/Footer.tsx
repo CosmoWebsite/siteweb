@@ -60,7 +60,6 @@ const Footer: React.FC<FooterProps> = ({ language }) => {
                     <div key={index}>
                       <span>
                         {language === "fr" ? item.fieldFr1 : item.fieldEn1}{" "}
-                        {"  "}
                       </span>
                       <span>
                         {language === "fr" ? item.fieldFr2 : item.fieldEn2}
@@ -80,24 +79,32 @@ const Footer: React.FC<FooterProps> = ({ language }) => {
           </div>
         </div>
 
-        {/* --- PARTIE FOOTER MODIFIÉE --- */}
+        {/* --- FOOTER MODIFIÉ --- */}
         <div className="mt-6 pt-4 border-t border-[#707c62] text-center text-sm">
           <p className="mb-2">&copy; {new Date().getFullYear()} COSMO BURGER</p>
 
-          <p className="text-white/80">
-            Created with{" "}
-            <span style={{ color: "#707c62", fontSize: "1.1em" }}>❤️</span> by{" "}
+          <p className="text-white/80 flex justify-center">
             <a
               href="https://www.vasseo.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white hover:text-white/90 underline underline-offset-2"
+              className="flex items-center space-x-1 text-white hover:text-white/90 underline underline-offset-2"
             >
-              Vasseo
+              <span>Created with</span>
+              <span
+                style={{
+                  color: "#707c62",
+                  fontSize: "1.2em",
+                  lineHeight: 1,
+                }}
+              >
+                ❤️
+              </span>
+              <span>by Vasseo</span>
             </a>
           </p>
         </div>
-        {/* --- FIN MODIF --- */}
+        {/* --- FIN MODIFS --- */}
       </div>
     </footer>
   );
