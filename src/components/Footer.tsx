@@ -60,6 +60,7 @@ const Footer: React.FC<FooterProps> = ({ language }) => {
                     <div key={index}>
                       <span>
                         {language === "fr" ? item.fieldFr1 : item.fieldEn1}{" "}
+                        {"  "}
                       </span>
                       <span>
                         {language === "fr" ? item.fieldFr2 : item.fieldEn2}
@@ -79,10 +80,10 @@ const Footer: React.FC<FooterProps> = ({ language }) => {
           </div>
         </div>
 
-        {/* --- FOOTER MODIFIÉ --- */}
         <div className="mt-6 pt-4 border-t border-[#707c62] text-center text-sm">
           <p className="mb-2">&copy; {new Date().getFullYear()} COSMO BURGER</p>
 
+          {/* Phrase cliquable + cœur #707c62 */}
           <p className="text-white/80 flex justify-center">
             <a
               href="https://www.vasseo.com"
@@ -104,7 +105,6 @@ const Footer: React.FC<FooterProps> = ({ language }) => {
             </a>
           </p>
         </div>
-        {/* --- FIN MODIFS --- */}
       </div>
     </footer>
   );
