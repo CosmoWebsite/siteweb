@@ -99,7 +99,7 @@ const Footer: React.FC<FooterProps> = ({ language }) => {
               rel="noopener noreferrer"
               className="hover:opacity-80 transition-opacity"
             >
-              Created with <span style={{ color: "#781310" }}>♥</span> by Vasseo
+              Created with <span style={{ color: "#707c62" }}>♥</span> by Vasseo
             </a>
           </p>
         </div>
