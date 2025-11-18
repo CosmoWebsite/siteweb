@@ -21,7 +21,6 @@ const Footer: React.FC<FooterProps> = ({ language }) => {
         setPhone("Erreur");
       }
     }
-
     fetchPhone();
   }, []);
 
@@ -36,7 +35,6 @@ const Footer: React.FC<FooterProps> = ({ language }) => {
         setSchedule([]);
       }
     }
-
     fetchSchedule();
   }, []);
 
@@ -44,6 +42,7 @@ const Footer: React.FC<FooterProps> = ({ language }) => {
     <footer className="bg-[#41522f] text-white py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Adresse */}
           <div className="flex items-center space-x-2">
             <MapPin className="h-5 w-5" />
             <div>
@@ -51,6 +50,7 @@ const Footer: React.FC<FooterProps> = ({ language }) => {
             </div>
           </div>
 
+          {/* Horaires */}
           <div className="flex items-start space-x-2">
             <Clock className="h-5 w-5 mt-1" />
             <div className="text-sm">
@@ -60,7 +60,6 @@ const Footer: React.FC<FooterProps> = ({ language }) => {
                     <div key={index}>
                       <span>
                         {language === "fr" ? item.fieldFr1 : item.fieldEn1}{" "}
-                        {"  "}
                       </span>
                       <span>
                         {language === "fr" ? item.fieldFr2 : item.fieldEn2}
@@ -74,34 +73,33 @@ const Footer: React.FC<FooterProps> = ({ language }) => {
             </div>
           </div>
 
+          {/* Téléphone */}
           <div className="flex items-center space-x-2">
             <Phone className="h-5 w-5" />
             <p>{phone}</p>
           </div>
         </div>
 
-        <div className="mt-6 pt-4 border-t border-[#707c62] text-center text-sm">
-          <p className="mb-2">&copy; {new Date().getFullYear()} COSMO BURGER</p>
+        {/* Nouveau footer centre */}
+        <div className="text-center pt-6 pb-2 mt-6 border-t border-[#707c62]">
+          <p
+            className="text-sm mb-2"
+            style={{ color: "var(--header-text)", opacity: 0.8 }}
+          >
+            © {new Date().getFullYear()} COSMO BURGER. Tous droits réservés.
+          </p>
 
-          {/* Phrase cliquable + cœur #707c62 */}
-          <p className="text-white/80 flex justify-center">
+          <p
+            className="text-sm mb-1"
+            style={{ color: "var(--header-text)", opacity: 0.6 }}
+          >
             <a
-              href="https://www.vasseo.com"
+              href="https://www.vasseo.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center space-x-1 text-white hover:text-white/90 underline underline-offset-2"
+              className="hover:opacity-80 transition-opacity"
             >
-              <span>Created with</span>
-              <span
-                style={{
-                  color: "#707c62",
-                  fontSize: "1.2em",
-                  lineHeight: 1,
-                }}
-              >
-                ❤️
-              </span>
-              <span>by Vasseo</span>
+              Created with <span style={{ color: "#781310" }}>♥</span> by Vasseo
             </a>
           </p>
         </div>
